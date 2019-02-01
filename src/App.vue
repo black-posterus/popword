@@ -3,7 +3,8 @@
     <el-main>
      <el-button type="info" class="button1" circle @click="change1"><i class="el-icon-date"></i></el-button>
      <el-button type="info" class="button2" circle @click="change2"><i class="el-icon-menu"></i></el-button>
-     <el-button type="info" class="button3" circle><i class="el-icon-share"></i></el-button>
+      <el-button type="info" class="button3" circle ><i class="el-icon-share"></i></el-button>
+      <div class="pause" :class="{out:!isOpen,in:isOpen}"><el-button type="info" class="button5" circle  @click="out()"><i class="el-icon-star-off"></i></el-button></div>
      <div v-show="show1" class="picker">
        <el-button type="info" class="button4" circle @click="change1"><i class="el-icon-close"></i></el-button>
        <mt-picker :slots="slots" class="mt_picker" :itemHeight="height"></mt-picker>
@@ -49,6 +50,7 @@ export default {
     return {
       show1:false,
       show2:false,
+      isOpen:true,
       height:300,
       slots: [
         {
@@ -67,64 +69,103 @@ export default {
 </script>
 
 <style lang="scss">
+  .pause{
+    background:navajowhite;
+    width: 2%;
+    height: 100%;
+    position:fixed;
+    right:0px;
+  }
+  .in{
+    width:1%;
+    animation:in 1s;
+    height:100%;
+    background:navajowhite;
+    position:fixed;
+    right:0px;
+  }
+  .out{
+    width:20%;
+    animation:out 1s;
+    height:100%;
+    background:navajowhite;
+    //z-index:9998;
+    position:fixed;
+    right:0px;
+  }
 .el-main{
   margin: 0;
   padding: 0;
   .button1{
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     position: fixed;
     top:20px;
     left: 20px;
     z-index: 99;
-    font-size: 50px;
-    @media screen and (max-width: 1024px){
+    font-size: 25px;
+    @media screen and (max-width: 600px){
       height: 45px;
       width: 45px;
-      font-size: 20px;
+      font-size: 21px;
     }
   }
   .button2{
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     position: fixed;
     top:20px;
     right: 20px;
     z-index: 99;
-    font-size: 50px;
-    @media screen and (max-width: 1024px){
+    font-size: 25px;
+    @media screen and (max-width: 600px){
       height: 45px;
       width: 45px;
-      font-size: 20px;
+      font-size: 21px;
     }
   }
   .button3{
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     position: fixed;
-    top:150px;
+    top:100px;
     right: 20px;
     z-index: 99;
-    font-size: 50px;
-    @media screen and (max-width: 1024px){
+    font-size: 25px;
+    @media screen and (max-width: 600px){
       height: 45px;
       width: 45px;
-      font-size: 20px;
+      font-size: 21px;
+      top:80px;
+    }
+  }
+  .button5{
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    top:180px;
+    right: 20px;
+    z-index: 99;
+    font-size: 25px;
+    @media screen and (max-width: 600px){
+      height: 45px;
+      width: 45px;
+      font-size: 21px;
       top:80px;
     }
   }
   .button4{
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     position: fixed;
     top:20px;
     right: 20px;
     z-index: 100;
-    font-size: 50px;
-    @media screen and (max-width: 1024px){
+    font-size: 25px;
+    @media screen and (max-width: 600px){
       height: 45px;
       width: 45px;
-      font-size: 20px;
+      font-size: 21px;
     }
   }
   .picker{
@@ -137,7 +178,8 @@ export default {
     z-index: 99;
   }
   .picker-item{
-    font-size:200px;
+    font-size:50px;
+    top:-40%;
      }
   .menu{
     height: 100%;
@@ -154,19 +196,20 @@ export default {
     width: 50%;
     height: 50%;
     position: relative;
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 600px){
       width: 100%;
       height: 34%;
     }
     p{
      color: white;
      text-align: center;
-     font-size: 700%;
+     font-size: 600%;
      position: absolute;
-     top:35%;
-     left: 10%;
-     @media screen and (max-width: 1024px){
+     top:15%;
+     //left: 10%;
+     @media screen and (max-width: 600px){
        font-size: 270%;
+       top:35%;
      }
     }
     img{
@@ -179,7 +222,7 @@ export default {
     height: 50%;
     display: flex;
     flex-wrap: wrap;
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 600px){
       width: 100%;
       height: 33%;
     }
@@ -193,7 +236,7 @@ export default {
     height: 50%;
     display: flex;
     flex-wrap: wrap;
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width:500px){
       width: 100%;
       height: 33%;
     }
