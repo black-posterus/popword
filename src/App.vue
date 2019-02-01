@@ -6,11 +6,11 @@
      <el-button type="info" class="button3" circle><i class="el-icon-share"></i></el-button>
      <div v-show="show1" class="picker">
        <el-button type="info" class="button4" circle @click="change1"><i class="el-icon-close"></i></el-button>
-       <mt-picker :slots="slots" class="mt_picker" itemHeight="300"></mt-picker>
+       <mt-picker :slots="slots" class="mt_picker" :itemHeight="height"></mt-picker>
      </div>
      <div v-show="show2" class="menu">
        <el-button type="info" class="button4" circle @click="change2"><i class="el-icon-close"></i></el-button>
-       <div class="menu-block-left"><img :src="this.list[0].src">xxxx年度流行语</div>
+       <div class="menu-block-left"><p>xxxx年度流行语</p><img :src="this.list[0].src"></div>
        <div class="menu-block-right">
          <img :src="list[1].src">
          <img :src="list[1].src">
@@ -49,6 +49,7 @@ export default {
     return {
       show1:false,
       show2:false,
+      height:300,
       slots: [
         {
           values: ['2016', '2017', '2018', '2019'],
@@ -77,6 +78,11 @@ export default {
     left: 20px;
     z-index: 99;
     font-size: 50px;
+    @media screen and (max-width: 1024px){
+      height: 45px;
+      width: 45px;
+      font-size: 20px;
+    }
   }
   .button2{
     height: 100px;
@@ -86,6 +92,11 @@ export default {
     right: 20px;
     z-index: 99;
     font-size: 50px;
+    @media screen and (max-width: 1024px){
+      height: 45px;
+      width: 45px;
+      font-size: 20px;
+    }
   }
   .button3{
     height: 100px;
@@ -95,6 +106,12 @@ export default {
     right: 20px;
     z-index: 99;
     font-size: 50px;
+    @media screen and (max-width: 1024px){
+      height: 45px;
+      width: 45px;
+      font-size: 20px;
+      top:80px;
+    }
   }
   .button4{
     height: 100px;
@@ -104,6 +121,11 @@ export default {
     right: 20px;
     z-index: 100;
     font-size: 50px;
+    @media screen and (max-width: 1024px){
+      height: 45px;
+      width: 45px;
+      font-size: 20px;
+    }
   }
   .picker{
     margin-top: -15%;
@@ -131,6 +153,22 @@ export default {
   .menu-block-left{
     width: 50%;
     height: 50%;
+    position: relative;
+    @media screen and (max-width: 1024px){
+      width: 100%;
+      height: 34%;
+    }
+    p{
+     color: white;
+     text-align: center;
+     font-size: 700%;
+     position: absolute;
+     top:35%;
+     left: 10%;
+     @media screen and (max-width: 1024px){
+       font-size: 270%;
+     }
+    }
     img{
       width: 100%;
       height: 100%;
@@ -141,6 +179,10 @@ export default {
     height: 50%;
     display: flex;
     flex-wrap: wrap;
+    @media screen and (max-width: 1024px){
+      width: 100%;
+      height: 33%;
+    }
     img{
       width: 50%;
       height: 50%;
@@ -151,19 +193,13 @@ export default {
     height: 50%;
     display: flex;
     flex-wrap: wrap;
+    @media screen and (max-width: 1024px){
+      width: 100%;
+      height: 33%;
+    }
     img{
       width: 33.33%;
       height: 50%;
-    }
-  }
-}
-@media screen and (max-width: 1024px){
-  .menu-block-left{
-    width: 100%;
-    height: 50%;
-    img{
-      width: 100%;
-      height: 100%;
     }
   }
 }

@@ -1,4 +1,4 @@
-# songlist
+# POPWORD
 
 > A Vue.js project
 

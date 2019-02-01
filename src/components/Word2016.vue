@@ -1,7 +1,7 @@
 <template>
   <div class="container">
    <swiper :options="swiperOption">
-     <swiper-slide v-for="(item,index) in intros" :key="index">
+     <swiper-slide v-for="(item,index) in intros" :key="index" class="slide">
        <img :src="item.src"><img class="intro_img">
        <div class="intro_wd">{{ item.introduction }}</div>
      </swiper-slide>
@@ -44,6 +44,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.slide{
+  position: relative;
+}
 img{
   width: 100%;
   height: 100%;
@@ -52,16 +55,28 @@ img{
   width: 300px;
   height: 300px;
   position: absolute;
-  top: 600px;
+  bottom: 200px;
   left: 100px;
   background: red;
+  @media screen and (max-width: 1024px){
+    width: 100%;
+    height: 15%;
+    left: 0;
+    bottom: 0;
+  }
 }
 .intro_img{
   width: 500px;
   height: 500px;
   position: absolute;
-  top: 200px;
+  bottom: 300px;
   left: 800px;
   background: green;
+  @media screen and (max-width: 1024px){
+    width: 100%;
+    height: 50%;
+    left: 0;
+    bottom:30%;
+  }
 }
 </style>
