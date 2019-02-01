@@ -47,32 +47,32 @@ export default {
 .slide{
   position: relative;
 }
+
 img{
   width: 100%;
   height: 100%;
 }
 .intro_wd{
-  width: 300px;
-  height: 300px;
+  width: 50%;
+  height: 30%;
   position: absolute;
-  bottom: 200px;
-  left: 100px;
+  top: 70%;
   background: red;
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 600px){
     width: 100%;
-    height: 15%;
+    height: 25%;
     left: 0;
-    bottom: 0;
+    top: 75%;
   }
 }
 .intro_img{
-  width: 500px;
-  height: 500px;
+  width: 50%;
+  height: 50%;
   position: absolute;
-  bottom: 300px;
-  left: 800px;
+  top:20%;
+  left: 25%;
   background: green;
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 600px){
     width: 100%;
     height: 50%;
     left: 0;
